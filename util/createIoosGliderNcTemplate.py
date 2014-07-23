@@ -50,8 +50,7 @@ import time as t
 import os
 
 # list of variables we don't want to create qc flags for
-NO_QC_VARS = ['time',
-    'trajectory',
+NO_QC_VARS = ['trajectory',
     'profile_id']
 
 # NetCDF4 compression level (1 seems to be optimal, in terms of effort and
@@ -59,7 +58,7 @@ NO_QC_VARS = ['time',
 COMP_LEVEL = 1
 
 # Name of output file
-NC_FILE = 'IOOS_Glider_NetCDF_Flat_v1.0.nc';
+NC_FILE = 'IOOS_Glider_NetCDF_v2.0.nc';
 if os.path.exists(NC_FILE):
     os.remove(NC_FILE)
 nc = Dataset(NC_FILE,
@@ -106,6 +105,7 @@ global_attributes = {
     'standard_name_vocabulary' : 'CF-v25',
     'summary' : "The Rutgers University Coastal Ocean Observation Lab has deployed autonomous underwater gliders around the world since 1990.  Gliders are small, free-swimming, unmanned vehicles that use changes in buoyancy to move vertically and horizontally through the water column in a saw-tooth pattern. They are deployed for days to several months and gather detailed information about the physical, chemical and biological processes of the world's The Slocum glider was designed and oceans. built by Teledyne Webb Research Corporation, Falmouth, MA, USA.  This dataset contains observational sub-surface profile data of the water-column.",
     'title' : ' ', # glider-YYYYmmddTHHMM'
+    'wmo_id' : ' '
     }
 # Add GLOBAL attributes
 for k in sorted(global_attributes.keys()):
@@ -118,6 +118,21 @@ QC_FLAGS = np.arange(0,len(QC_FLAG_MEANINGS.split()), dtype=np.byte);
 
 # Variable Definitions
 # ----------------------------------------------------------------------------
+
+# trajectory
+trajectory = nc.createVariable('trajectory',
+    'S1',
+    ('traj_strlen',))
+# Dictionary of variable attributes.  Use a dictionary so that we can add the
+# attributes in alphabetical order (not necessary, but makes it easier to find
+# attributes that are in alphabetical order)
+atts = {'cf_role' : 'trajectory_id',
+    'long_name' : 'Trajectory/Deployment Name',
+    'comment' : 'A trajectory is a single deployment of a glider and may span multiple data files.',
+    }
+for k in sorted(atts.keys()):
+    trajectory.setncattr(k, atts[k])
+    
 # TIME
 # time: no _Fill_Value since dimension
 time = nc.createVariable('time',
@@ -129,7 +144,7 @@ time = nc.createVariable('time',
 # Dictionary of variable attributes.  Use a dictionary so that we can add the
 # attributes in alphabetical order (not necessary, but makes it easier to find
 # attributes that are in alphabetical order)
-atts = {'ancillary_variables' : ' ',
+atts = {'ancillary_variables' : 'time_qc',
     'calendar' : 'gregorian',
     'units' : 'seconds since 1970-01-01T00:00:00Z',
     'standard_name' : 'time',
@@ -138,21 +153,6 @@ atts = {'ancillary_variables' : ' ',
     }
 for k in sorted(atts.keys()):
     time.setncattr(k, atts[k])
-
-# trajectory
-trajectory = nc.createVariable('trajectory',
-    'S1',
-    ('traj_strlen',))
-# Dictionary of variable attributes.  Use a dictionary so that we can add the
-# attributes in alphabetical order (not necessary, but makes it easier to find
-# attributes that are in alphabetical order)
-atts = {'cf_role' : 'trajectory_id',
-    'long_name' : 'Trajectory Name',
-    'comment' : 'A trajectory is a single glider deployment',
-    'units' : '1',
-    }
-for k in sorted(atts.keys()):
-    trajectory.setncattr(k, atts[k])
 
 # Latitude
 lat = nc.createVariable('lat',
@@ -170,7 +170,7 @@ atts = { 'units' : 'degrees_north',
     'observation_type' : 'measured',
     'ancillary_variables' : 'lat_qc',
     'platform' : 'platform',
-    'comment' : 'Values are interpolated between measured GPS fixes',
+    'comment' : 'Values may be interpolated between measured GPS fixes',
     'reference' : 'WGS84', 
     'coordinate_reference_frame' : 'urn:ogc:crs:EPSG::4326', # GROOM manual, p16
     }
@@ -195,7 +195,7 @@ atts = {'units' : 'degrees_east',
     'observation_type' : 'measured',
     'ancillary_variables' : 'lon_qc',
     'platform' : 'platform',
-    'comment' : 'Values are interpolated between measured GPS fixes',
+    'comment' : 'Values may be interpolated between measured GPS fixes',
     'reference' : 'WGS84', # GROOM manual, p16
     'coordinate_reference_frame' : 'urn:ogc:crs:EPSG::4326', # GROOM manual, p16
     }
@@ -235,7 +235,7 @@ depth = nc.createVariable('depth',
     ('time',),
     zlib=True,
     complevel=COMP_LEVEL,
-    fill_value=NC_FILL_VALUES['f8'])
+    fill_value=-999.)
 # Variable attributes
 atts = {'units' : 'm',
     'standard_name' : 'depth',
@@ -357,12 +357,12 @@ profile_id = nc.createVariable('profile_id',
     'i4',
     zlib=True,
     complevel=COMP_LEVEL,
-    fill_value=-999.)
+    fill_value=-1)
 # Variable attributes
-atts = {'comment' : 'Sequential profile number within the trajectory',
+atts = {'comment' : 'Sequential profile number within the trajectory.  This value is unique in each file that is part of a single trajectory/deployment.',
     'long_name' : 'Profile ID',
     'valid_min' : 1,
-    'valid_max' : NC_FILL_VALUES['i4'],
+    'valid_max' : 2147483647,
     }
 for k in sorted(atts.keys()):
     profile_id.setncattr(k, atts[k])
@@ -379,7 +379,7 @@ atts = {'units' : 'seconds since 1970-01-01T00:00:00Z',
     'long_name' : 'Profile Center Time',
     'observation_type' : 'calculated',
     'platform' : 'platform',
-    'comment' : 'Value is the mean timestamp of the profile',
+    'comment' : 'Timestamp corresponding to the mid-point of the profile',
     }
 for k in sorted(atts.keys()):
     profile_time.setncattr(k, atts[k])
@@ -398,7 +398,7 @@ atts = {'units' : 'degrees_north',
     'valid_max' : 90.,
     'observation_type' : 'calculated',
     'platform' : 'platform',
-    'comment' : 'Value is interpolated to provide the center latitude of the profile',
+    'comment' : 'Value is interpolated to provide an estimate of the latitude at the mid-point of the profile',
     }
 for k in sorted(atts.keys()):
     profile_lat.setncattr(k, atts[k])
@@ -417,7 +417,7 @@ atts = {'units' : 'degrees_east',
     'valid_max' : 180.,
     'observation_type' : 'calculated',
     'platform' : 'platform',
-    'comment' : 'Values are interpolated to provide the center longitude of the profile',
+    'comment' : 'Value is interpolated to provide an estimate of the longitude at the mid-point of the profile',
     }
 for k in sorted(atts.keys()):
     profile_lon.setncattr(k, atts[k])
@@ -434,7 +434,7 @@ atts = {'calendar' : 'gregorian',
     'standard_name' : 'time',
     'long_name' : 'Time',
     'observation_type' : 'calculated',
-    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater over all profiles contained in the segment.  Values are interpolated to provide the center timestamp of the profile',
+    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives.',
     }
 for k in sorted(atts.keys()):
     time_uv.setncattr(k, atts[k])
@@ -454,7 +454,7 @@ atts = {'units' : 'degrees_north',
     'valid_max' : 90.,
     'observation_type' : 'calculated',
     'platform' : 'platform',
-    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater over all profiles contained in the segment.  Values are interpolated to provide the center latitude of the profile.',
+    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives.',
     }
 for k in sorted(atts.keys()):
     lat_uv.setncattr(k, atts[k])
@@ -473,7 +473,7 @@ atts = {'units' : 'degrees_east',
     'valid_max' : 180.,
     'observation_type' : 'calculated',
     'platform' : 'platform',
-    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater over all profiles contained in the segment.  Values are interpolated to provide the center longitude of the profile.',
+    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives.',
     }
 for k in sorted(atts.keys()):
     lon_uv.setncattr(k, atts[k])
@@ -492,7 +492,7 @@ atts = {'units' : 'm s-1',
     'long_name' : 'Depth-Averaged Eastward Sea Water Velocity',
     'observation_type' : 'calculated',
     'platform' : 'platform',
-    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater over all profiles contained in the segment.  The value is reported for each profile in the underwater segment.',
+    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives.',
     }
 for k in sorted(atts.keys()):
     u.setncattr(k, atts[k])
@@ -511,19 +511,56 @@ atts = {'units' : 'm s-1',
     'long_name' : 'Depth-Averaged Northward Sea Water Velocity',
     'observation_type' : 'calculated',
     'platform' : 'platform',
-    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater over all profiles contained in the segment.  The value is reported for each profile in the underwater segment.',
+    'comment' : 'The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives.',
     }
 for k in sorted(atts.keys()):
     v.setncattr(k, atts[k])
 
+# platform
+platform = nc.createVariable('platform',
+    'i4',
+    zlib=True,
+    complevel=COMP_LEVEL,
+    fill_value=-999.)
+# Variable attributes
+atts = {'id' : ' ',
+	    'instrument' : 'instrument_ctd',
+	    'long_name' : ' ',
+	    'type' : 'platform',
+	    'comment' : ' ',
+	    'wmo_id' : ' ',
+    }
+for k in sorted(atts.keys()):
+    platform.setncattr(k, atts[k])
+
+# instrument_ctd
+platform = nc.createVariable('instrument_ctd',
+    'i4',
+    zlib=True,
+    complevel=COMP_LEVEL,
+    fill_value=-999.)
+# Variable attributes
+atts = {'calibration_date' : ' ',
+        'calibration_report' : ' ',
+        'factory_calibrated' : ' ',
+        'make_model' : 'Seabird GPCTD',
+        'platform' : 'platform',
+        'long_name' : 'Seabird Glider Payload CTD',
+        'type' : 'platform',
+        'comment' : 'pumped CTD',
+        'serial_number' : ' ',
+    }
+for k in sorted(atts.keys()):
+    platform.setncattr(k, atts[k])
+
 # Create QC variables for all previously added variables as long as they are
 # not included in NO_QC_VARS or don't have a CF standard name
 QC_ATTRIBUTES = {'long_name' : ' ',
-    'standard_name' : ' ',
-    'flag_meanings' : QC_FLAG_MEANINGS,
-    'valid_min' : QC_FLAGS[0],
-    'valid_max' : QC_FLAGS[-1],
-    'flag_values' : QC_FLAGS,
+	    'standard_name' : ' ',
+	    'flag_meanings' : QC_FLAG_MEANINGS,
+	    'valid_min' : QC_FLAGS[0],
+	    'valid_max' : QC_FLAGS[-1],
+	    'flag_values' : QC_FLAGS,
     };
 for (varName, varObj) in nc.variables.items():
 
