@@ -39,6 +39,27 @@
     </dataVariable>
 
     <dataVariable>
+        <sourceName>:institution</sourceName>
+        <destinationName>institution</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Institution</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>:wmo_id</sourceName>
+        <destinationName>wmo_id</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">WMO ID</att>
+            <att name="missing_value" type="string">none specified</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
         <sourceName>profile_id</sourceName>
         <destinationName>profile_id</destinationName>
         <dataType>short</dataType>
