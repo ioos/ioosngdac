@@ -1,0 +1,544 @@
+<!-- datasetID needs to be filled in -->
+<dataset type="EDDTableFromNcFiles" datasetID="ru29-20131110T1400" active="true">
+    <!-- defaultDataQuery uses datasetID -->
+    <defaultDataQuery>&amp;trajectory=ru29-20131110T1400</defaultDataQuery>
+    <defaultGraphQuery>longitude,latitude,time&amp;.draw=linesAndMarkers&amp;.marker=7|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
+    <reloadEveryNMinutes>60</reloadEveryNMinutes>
+    <!-- use datasetID as the directory name -->
+    <fileDir>/home/coolgroup/GDAC/erddap-nc/ru29-401</fileDir>
+    <recursive>false</recursive>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <metadataFrom>last</metadataFrom>
+    <sortedColumnSourceName>time</sortedColumnSourceName>
+    <sortFilesBySourceNames>trajectory time</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory> 
+    
+    <addAttributes>
+        <att name="cdm_data_type">trajectoryProfile</att>
+        <att name="featureType">trajectoryProfile</att>
+        <att name="cdm_trajectory_variables">trajectory</att>
+        <att name="cdm_profile_variables">time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
+        <att name="subsetVariables">trajectory,time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
+
+        <att name="Conventions">Unidata Dataset Discovery v1.0, COARDS, CF-1.6</att>
+        <att name="keywords">conductivity, density, depth, development, electrical, flag, glide, glider, group, identifier, institution, instrument, name, ocean, oceanography, oceans,Oceans &gt; Ocean Pressure &gt; Water Pressure, Oceans &gt; Ocean Temperature &gt; Water Temperature,Oceans &gt; Salinity/Density &gt; Conductivity, practical, pressure, quality, salinity, scripps, sea, sea_water_electrical_conductivity, sea_water_practical_salinity, sea_water_pressure, sea_water_temperature, seawater, spray, temperature, time, trajectory, underwater glider, water, wmo</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="Metadata_Conventions">Unidata Dataset Discovery v1.0, COARDS, CF-1.6</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="infoUrl">http://rucool.marine.rutgers.edu</att>
+        <!-- title=datasetID -->
+        <att name="title">ru29-20131110T1400</att>
+
+    </addAttributes> 
+
+    <dataVariable>
+        <sourceName>trajectory</sourceName>
+        <destinationName>trajectory</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="comment">A trajectory is one deployment of a glider.</att>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Trajectory Name</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>:institution</sourceName>
+        <destinationName>institution</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Institution</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>:wmo_id</sourceName>
+        <destinationName>wmo_id</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">WMO ID</att>
+            <att name="missing_value" type="string">none specified</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_id</sourceName>
+        <destinationName>profile_id</destinationName>
+        <dataType>short</dataType>
+        <addAttributes>
+            <att name="cf_role">profile_id</att>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Profile ID</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>precise_time</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Precise Time</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>depth</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">2000.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="colorBarPalette">OceanDepth</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Depth</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>pressure</sourceName>
+        <destinationName>pressure</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">2000.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Pressure</att>
+            <att name="long_name">Sea Water Pressure</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>temperature</sourceName>
+        <destinationName>temperature</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">32.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Temperature</att>
+            <att name="long_name">Sea Water Temperature</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>conductivity</sourceName>
+        <destinationName>conductivity</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">9.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Salinity</att>
+            <att name="long_name">Sea Water Electrical Conductivity</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>salinity</sourceName>
+        <destinationName>salinity</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">37.0</att>
+            <att name="colorBarMinimum" type="double">30.0</att>
+            <att name="ioos_category">Salinity</att>
+            <att name="long_name">Sea Water Practical Salinity</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>density</sourceName>
+        <destinationName>density</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">1032.0</att>
+            <att name="colorBarMinimum" type="double">1020.0</att>
+            <att name="ioos_category">Other</att>
+            <att name="long_name">Sea Water Density</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>lat</sourceName>
+        <destinationName>precise_lat</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Precise Latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>lon</sourceName>
+        <destinationName>precise_lon</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Precise Longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Profile Time</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_lat</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Profile Latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_lon</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Profile Longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>time_uv</sourceName>
+        <destinationName>time_uv</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Depth-averaged Time</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>lat_uv</sourceName>
+        <destinationName>lat_uv</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Depth-averaged Latitude </att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>lon_uv</sourceName>
+        <destinationName>lon_uv</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Depth-averaged Longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>u</sourceName>
+        <destinationName>u</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">0.5</att>
+            <att name="colorBarMinimum" type="double">-0.5</att>
+            <att name="coordinates">lon_uv lat_uv time_uv</att>
+            <att name="ioos_category">Currents</att>
+            <att name="long_name">Depth-averaged Eastward Sea Water Velocity</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>v</sourceName>
+        <destinationName>v</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">0.5</att>
+            <att name="colorBarMinimum" type="double">-0.5</att>
+            <att name="coordinates">lon_uv lat_uv time_uv</att>
+            <att name="ioos_category">Currents</att>
+            <att name="long_name">Depth-averaged Northward Sea Water Velocity</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>platform</sourceName>
+        <destinationName>platform_meta</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Platform Metadata</att>
+            <att name="units">1</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>instrument_ctd</sourceName>
+        <destinationName>instrument_ctd</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">CTD Metadata</att>
+            <att name="units">1</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>time_qc</sourceName>
+        <destinationName>time_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">time Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>depth_qc</sourceName>
+        <destinationName>depth_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">depth Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>pressure_qc</sourceName>
+        <destinationName>pressure_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">pressure Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>temperature_qc</sourceName>
+        <destinationName>temperature_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">temperature Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>conductivity_qc</sourceName>
+        <destinationName>conductivity_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">conductivity Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>salinity_qc</sourceName>
+        <destinationName>salinity_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">salinity Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>density_qc</sourceName>
+        <destinationName>density_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">density Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>precise_lat_qc</sourceName>
+        <destinationName>precise_lat_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">precise_lat Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>precise_lon_qc</sourceName>
+        <destinationName>precise_lon_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">precise_lon Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_time_qc</sourceName>
+        <destinationName>profile_time_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">profile_time Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_lat_qc</sourceName>
+        <destinationName>profile_lat_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">profile_lat Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_lon_qc</sourceName>
+        <destinationName>profile_lon_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">128.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">profile_lon Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>time_uv_qc</sourceName>
+        <destinationName>time_uv_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">9.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">time_uv Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>lat_uv_qc</sourceName>
+        <destinationName>lat_uv_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">9.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">lat_uv Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>lon_uv_qc</sourceName>
+        <destinationName>lon_uv_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">9.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">lon_uv Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>u_qc</sourceName>
+        <destinationName>u_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">9.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">u Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>v_qc</sourceName>
+        <destinationName>v_qc</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <!--
+            <att name="colorBarMaximum" type="double">9.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            -->
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">v Variable Quality Flag</att>
+        </addAttributes>
+    </dataVariable>
+
+</dataset>
