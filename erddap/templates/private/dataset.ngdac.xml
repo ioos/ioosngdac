@@ -18,7 +18,7 @@
         <att name="featureType">trajectoryProfile</att>
         <att name="cdm_trajectory_variables">trajectory</att>
         <att name="cdm_profile_variables">time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
-        <att name="subsetVariables">trajectory,time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
+        <att name="subsetVariables">trajectory,wmo_id,institution,time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
 
         <att name="Conventions">Unidata Dataset Discovery v1.0, COARDS, CF-1.6</att>
         <att name="keywords">conductivity, density, depth, development, electrical, flag, glide, glider, group, identifier, institution, instrument, name, ocean, oceanography, oceans,Oceans &gt; Ocean Pressure &gt; Water Pressure, Oceans &gt; Ocean Temperature &gt; Water Temperature,Oceans &gt; Salinity/Density &gt; Conductivity, practical, pressure, quality, salinity, scripps, sea, sea_water_electrical_conductivity, sea_water_practical_salinity, sea_water_pressure, sea_water_temperature, seawater, spray, temperature, time, trajectory, underwater glider, water, wmo</att>
@@ -28,6 +28,8 @@
         <att name="infoUrl">http://rucool.marine.rutgers.edu</att>
         <!-- title=datasetID -->
         <att name="title">ru29-20131110T1400</att>
+        <!-- Data Provider Institution from http://gliders.ioos.us -->
+        <att name="institution">Rutgers University</att>
 
     </addAttributes> 
 
@@ -43,7 +45,7 @@
     </dataVariable>
 
     <dataVariable>
-        <sourceName>:institution</sourceName>
+        <sourceName>global:institution</sourceName>
         <destinationName>institution</destinationName>
         <dataType>String</dataType>
         <addAttributes>
@@ -53,7 +55,7 @@
     </dataVariable>
 
     <dataVariable>
-        <sourceName>:wmo_id</sourceName>
+        <sourceName>global:wmo_id</sourceName>
         <destinationName>wmo_id</destinationName>
         <dataType>String</dataType>
         <addAttributes>
