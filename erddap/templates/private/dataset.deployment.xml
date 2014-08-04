@@ -1,11 +1,11 @@
-<!-- datasetID needs to be filled in -->
+<!-- datasetID needs to be replace with deployment directory name -->
 <dataset type="EDDTableFromNcFiles" datasetID="ru29-20131110T1400" active="true">
     <!-- defaultDataQuery uses datasetID -->
     <defaultDataQuery>&amp;trajectory=ru29-20131110T1400</defaultDataQuery>
-    <defaultGraphQuery>longitude,latitude,time&amp;.draw=linesAndMarkers&amp;.marker=7|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
+    <defaultGraphQuery>longitude,latitude,time&amp;.draw=linesAndMarkers&amp;.marker=2|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
     <reloadEveryNMinutes>60</reloadEveryNMinutes>
     <!-- use datasetID as the directory name -->
-    <fileDir>/home/coolgroup/GDAC/erddap-nc/ru29-401</fileDir>
+    <fileDir>/home/coolgroup/GDAC/erddap/private/nc/ru29-401</fileDir>
     <recursive>false</recursive>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <metadataFrom>last</metadataFrom>
@@ -26,6 +26,7 @@
         <att name="Metadata_Conventions">Unidata Dataset Discovery v1.0, COARDS, CF-1.6</att>
         <att name="sourceUrl">(local files)</att>
         <att name="infoUrl">http://rucool.marine.rutgers.edu</att>
+        <att name="project">Challenger</att>
         <!-- title=datasetID -->
         <att name="title">ru29-20131110T1400</att>
         <!-- Data Provider Institution from http://gliders.ioos.us -->
@@ -77,12 +78,50 @@
     </dataVariable>
 
     <dataVariable>
+        <sourceName>profile_time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Profile Time</att>
+            <att name="comment">Timestamp corresponding to the mid-point of the profile.</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_lat</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Profile Latitude</att>
+            <att name="comment">Value is interpolated to provide an estimate of the latitude at the mid-point of the profile.</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>profile_lon</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Profile Longitude</att>
+            <att name="comment">Value is interpolated to provide an estimate of the longitude at the mid-point of the profile.</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
         <sourceName>time</sourceName>
         <destinationName>precise_time</destinationName>
         <dataType>double</dataType>
         <addAttributes>
             <att name="ioos_category">Time</att>
             <att name="long_name">Precise Time</att>
+            <att name="comment">Measured or calculated time at eachpoint in the time-series</att>
         </addAttributes>
     </dataVariable>
 
@@ -164,11 +203,12 @@
         <destinationName>precise_lat</destinationName>
         <dataType>double</dataType>
         <addAttributes>
+            <att name="ancillary_varibles">precise_lat_qc</att>
             <att name="colorBarMaximum" type="double">90.0</att>
             <att name="colorBarMinimum" type="double">-90.0</att>
             <att name="ioos_category">Location</att>
             <att name="long_name">Precise Latitude</att>
-            <att name="units">degrees_north</att>
+            <att name="comment">Interpolated latitude at each point in the time-series</att>
         </addAttributes>
     </dataVariable>
 
@@ -177,47 +217,12 @@
         <destinationName>precise_lon</destinationName>
         <dataType>double</dataType>
         <addAttributes>
+            <att name="ancillary_varibles">precise_lon_qc</att>
             <att name="colorBarMaximum" type="double">180.0</att>
             <att name="colorBarMinimum" type="double">-180.0</att>
             <att name="ioos_category">Location</att>
             <att name="long_name">Precise Longitude</att>
-            <att name="units">degrees_east</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>profile_time</sourceName>
-        <destinationName>time</destinationName>
-        <dataType>double</dataType>
-        <addAttributes>
-            <att name="ioos_category">Time</att>
-            <att name="long_name">Profile Time</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>profile_lat</sourceName>
-        <destinationName>latitude</destinationName>
-        <dataType>double</dataType>
-        <addAttributes>
-            <att name="colorBarMaximum" type="double">90.0</att>
-            <att name="colorBarMinimum" type="double">-90.0</att>
-            <att name="ioos_category">Location</att>
-            <att name="long_name">Profile Latitude</att>
-            <att name="units">degrees_north</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>profile_lon</sourceName>
-        <destinationName>longitude</destinationName>
-        <dataType>double</dataType>
-        <addAttributes>
-            <att name="colorBarMaximum" type="double">180.0</att>
-            <att name="colorBarMinimum" type="double">-180.0</att>
-            <att name="ioos_category">Location</att>
-            <att name="long_name">Profile Longitude</att>
-            <att name="units">degrees_east</att>
+            <att name="comment">Interpolated longitude at each point in the time-series</att>
         </addAttributes>
     </dataVariable>
 
@@ -240,7 +245,6 @@
             <att name="colorBarMinimum" type="double">-90.0</att>
             <att name="ioos_category">Location</att>
             <att name="long_name">Depth-averaged Latitude </att>
-            <att name="units">degrees_north</att>
         </addAttributes>
     </dataVariable>
 
@@ -253,7 +257,6 @@
             <att name="colorBarMinimum" type="double">-180.0</att>
             <att name="ioos_category">Location</att>
             <att name="long_name">Depth-averaged Longitude</att>
-            <att name="units">degrees_east</att>
         </addAttributes>
     </dataVariable>
 
@@ -307,15 +310,11 @@
 
     <dataVariable>
         <sourceName>time_qc</sourceName>
-        <destinationName>time_qc</destinationName>
+        <destinationName>precise_time_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
-            <att name="long_name">time Variable Quality Flag</att>
+            <att name="long_name">precise_time Variable Quality Flag</att>
         </addAttributes>
     </dataVariable>
 
@@ -324,10 +323,6 @@
         <destinationName>depth_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">depth Variable Quality Flag</att>
         </addAttributes>
@@ -338,10 +333,6 @@
         <destinationName>pressure_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">pressure Variable Quality Flag</att>
         </addAttributes>
@@ -352,10 +343,6 @@
         <destinationName>temperature_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">temperature Variable Quality Flag</att>
         </addAttributes>
@@ -366,10 +353,6 @@
         <destinationName>conductivity_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">conductivity Variable Quality Flag</att>
         </addAttributes>
@@ -380,10 +363,6 @@
         <destinationName>salinity_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">salinity Variable Quality Flag</att>
         </addAttributes>
@@ -394,38 +373,26 @@
         <destinationName>density_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">density Variable Quality Flag</att>
         </addAttributes>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>precise_lat_qc</sourceName>
+        <sourceName>lat_qc</sourceName>
         <destinationName>precise_lat_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
-            <att name="long_name">precise_lat Variable Quality Flag</att>
+            <att name="long_name">lat Variable Quality Flag</att>
         </addAttributes>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>precise_lon_qc</sourceName>
+        <sourceName>lon_qc</sourceName>
         <destinationName>precise_lon_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">precise_lon Variable Quality Flag</att>
         </addAttributes>
@@ -436,10 +403,6 @@
         <destinationName>profile_time_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">profile_time Variable Quality Flag</att>
         </addAttributes>
@@ -447,29 +410,21 @@
 
     <dataVariable>
         <sourceName>profile_lat_qc</sourceName>
-        <destinationName>profile_lat_qc</destinationName>
+        <destinationName>latitude_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
-            <att name="long_name">profile_lat Variable Quality Flag</att>
+            <att name="long_name">latitude Variable Quality Flag</att>
         </addAttributes>
     </dataVariable>
 
     <dataVariable>
         <sourceName>profile_lon_qc</sourceName>
-        <destinationName>profile_lon_qc</destinationName>
+        <destinationName>longitude_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">128.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
-            <att name="long_name">profile_lon Variable Quality Flag</att>
+            <att name="long_name">longitude Variable Quality Flag</att>
         </addAttributes>
     </dataVariable>
 
@@ -478,10 +433,6 @@
         <destinationName>time_uv_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">9.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">time_uv Variable Quality Flag</att>
         </addAttributes>
@@ -492,10 +443,6 @@
         <destinationName>lat_uv_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">9.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">lat_uv Variable Quality Flag</att>
         </addAttributes>
@@ -506,10 +453,6 @@
         <destinationName>lon_uv_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">9.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">lon_uv Variable Quality Flag</att>
         </addAttributes>
@@ -520,10 +463,6 @@
         <destinationName>u_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">9.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">u Variable Quality Flag</att>
         </addAttributes>
@@ -534,10 +473,6 @@
         <destinationName>v_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
-            <!--
-            <att name="colorBarMaximum" type="double">9.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            -->
             <att name="ioos_category">Quality</att>
             <att name="long_name">v Variable Quality Flag</att>
         </addAttributes>
