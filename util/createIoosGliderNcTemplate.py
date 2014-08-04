@@ -150,6 +150,7 @@ atts = {'ancillary_variables' : 'time_qc',
     'standard_name' : 'time',
     'long_name' : 'Time',
     'observation_type' : 'measured',
+    'comment' : 'Measured or calculated time at each point in the time-series',
     }
 for k in sorted(atts.keys()):
     time.setncattr(k, atts[k])
@@ -170,7 +171,7 @@ atts = { 'units' : 'degrees_north',
     'observation_type' : 'measured',
     'ancillary_variables' : 'lat_qc',
     'platform' : 'platform',
-    'comment' : 'Values may be interpolated between measured GPS fixes',
+    'comment' : 'Interpolated latitude at each point in the time-series',
     'reference' : 'WGS84', 
     'coordinate_reference_frame' : 'urn:ogc:crs:EPSG::4326', # GROOM manual, p16
     }
@@ -195,7 +196,7 @@ atts = {'units' : 'degrees_east',
     'observation_type' : 'measured',
     'ancillary_variables' : 'lon_qc',
     'platform' : 'platform',
-    'comment' : 'Values may be interpolated between measured GPS fixes',
+    'comment' : 'Interpolated longitude at each point in the time-series.',
     'reference' : 'WGS84', # GROOM manual, p16
     'coordinate_reference_frame' : 'urn:ogc:crs:EPSG::4326', # GROOM manual, p16
     }
