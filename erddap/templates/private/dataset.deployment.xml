@@ -1,10 +1,10 @@
-<dataset type="EDDTableFromNcFiles" datasetID="ru29-20131110T1400" active="true">
+<dataset type="EDDTableFromNcFiles" datasetID="ru30-20140702T2329" active="true">
     <!-- defaultDataQuery uses datasetID -->
-    <defaultDataQuery>&amp;trajectory=ru29-20131110T1400</defaultDataQuery>
-    <defaultGraphQuery>longitude,latitude,time&amp;.draw=linesAndMarkers&amp;.marker=2|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
+    <defaultDataQuery>&amp;trajectory=ru30-20140702T2329</defaultDataQuery>
+    <defaultGraphQuery>longitude,latitude,time&amp;.draw=markers&amp;.marker=2|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
     <reloadEveryNMinutes>60</reloadEveryNMinutes>
     <!-- use datasetID as the directory name -->
-    <fileDir>/home/coolgroup/GDAC/erddap/private/nc/ru29-401</fileDir>
+    <fileDir>/home/coolgroup/GDAC/erddap/private/nc/ru30-415</fileDir>
     <recursive>false</recursive>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <metadataFrom>last</metadataFrom>
@@ -25,9 +25,8 @@
         <att name="Metadata_Conventions">Unidata Dataset Discovery v1.0, COARDS, CF-1.6</att>
         <att name="sourceUrl">(local files)</att>
         <att name="infoUrl">http://rucool.marine.rutgers.edu</att>
-        <att name="project">Challenger</att>
         <!-- title=datasetID -->
-        <att name="title">ru29-20131110T1400</att>
+        <att name="title">ru30-20140702T2329</att>
         <!-- Data Provider Institution from http://gliders.ioos.us -->
         <att name="institution">Rutgers University</att>
 
@@ -399,7 +398,7 @@
 
     <dataVariable>
         <sourceName>profile_time_qc</sourceName>
-        <destinationName>profile_time_qc</destinationName>
+        <destinationName>time_qc</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
             <att name="ioos_category">Quality</att>
