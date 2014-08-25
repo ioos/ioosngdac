@@ -1,10 +1,10 @@
-<dataset type="EDDTableFromNcFiles" datasetID="ru30-20140702T2329" active="true">
+<dataset type="EDDTableFromNcFiles" datasetID="${dataset_id}" active="true">
     <!-- defaultDataQuery uses datasetID -->
-    <defaultDataQuery>&amp;trajectory=ru30-20140702T2329</defaultDataQuery>
+    <defaultDataQuery>&amp;trajectory=${dataset_id}</defaultDataQuery>
     <defaultGraphQuery>longitude,latitude,time&amp;.draw=markers&amp;.marker=2|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
     <reloadEveryNMinutes>60</reloadEveryNMinutes>
     <!-- use datasetID as the directory name -->
-    <fileDir>/home/coolgroup/GDAC/erddap/private/nc/ru30-415</fileDir>
+    <fileDir>${dataset_dir}</fileDir>
     <recursive>false</recursive>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <metadataFrom>last</metadataFrom>
@@ -26,9 +26,9 @@
         <att name="sourceUrl">(local files)</att>
         <att name="infoUrl">http://rucool.marine.rutgers.edu</att>
         <!-- title=datasetID -->
-        <att name="title">ru30-20140702T2329</att>
+        <att name="title">${dataset_id}</att>
         <!-- Data Provider Institution from http://gliders.ioos.us -->
-        <att name="institution">Rutgers University</att>
+        <att name="institution">${institution}</att>
 
     </addAttributes> 
 
