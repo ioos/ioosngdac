@@ -1,5 +1,5 @@
 <dataset type="EDDTableFromNcCFFiles" datasetID="${dataset_id}" active="true">
-    <defaultDataQuery>&amp;trajectory=${dataset.id}</defaultDataQuery>
+    <defaultDataQuery>&amp;trajectory=${dataset_id}</defaultDataQuery>
     <defaultGraphQuery>longitude,latitude&amp;.draw=linesAndMarkers&amp;.marker=1|5&amp;.color=0xFFFFFF</defaultGraphQuery>
     <reloadEveryNMinutes>60</reloadEveryNMinutes>
     <fileDir>${dataset_dir}</fileDir>
