@@ -6,7 +6,7 @@
     <reloadEveryNMinutes>60</reloadEveryNMinutes>
     <fileDir>${dataset_dir}</fileDir>
     <recursive>true</recursive>
-    <fileNameRegex>.*\.ncCF\.nc3\.nc</fileNameRegex>
+    <fileNameRegex>.*\.nc3\.nc</fileNameRegex>
     <metadataFrom>last</metadataFrom>
     <preExtractRegex></preExtractRegex>
     <postExtractRegex></postExtractRegex>
