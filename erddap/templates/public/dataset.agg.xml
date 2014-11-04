@@ -142,7 +142,7 @@
     <dataVariable>
         <sourceName>profile_id</sourceName>
         <destinationName>profile_id</destinationName>
-        <dataType>short</dataType>
+        <dataType>int</dataType>
     </dataVariable>
 
     <dataVariable>
