@@ -43,6 +43,7 @@
         </addAttributes>
     </dataVariable>
 
+    <!--
     <dataVariable>
         <sourceName>global:institution</sourceName>
         <destinationName>institution</destinationName>
@@ -52,6 +53,7 @@
             <att name="long_name">Institution</att>
         </addAttributes>
     </dataVariable>
+    -->
 
     <dataVariable>
         <sourceName>global:wmo_id</sourceName>
