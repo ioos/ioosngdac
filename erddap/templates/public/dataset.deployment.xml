@@ -1,10 +1,10 @@
 <dataset type="EDDTableFromNcCFFiles" datasetID="${dataset_id}" active="true">
     <defaultDataQuery>&amp;trajectory=${dataset_id}</defaultDataQuery>
     <defaultGraphQuery>longitude,latitude&amp;.draw=linesAndMarkers&amp;.marker=1|5&amp;.color=0xFFFFFF</defaultGraphQuery>
-    <reloadEveryNMinutes>60</reloadEveryNMinutes>
+    <reloadEveryNMinutes>15</reloadEveryNMinutes>
     <fileDir>${dataset_dir}</fileDir>
     <recursive>false</recursive>
-    <fileNameRegex>.*\.ncCF\.nc3\.nc</fileNameRegex>
+    <fileNameRegex>.*\.nc3\.nc</fileNameRegex>
     <metadataFrom>last</metadataFrom>
     <preExtractRegex></preExtractRegex>
     <postExtractRegex></postExtractRegex>

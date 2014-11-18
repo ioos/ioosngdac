@@ -69,7 +69,7 @@
     <dataVariable>
         <sourceName>profile_id</sourceName>
         <destinationName>profile_id</destinationName>
-        <dataType>short</dataType>
+        <dataType>int</dataType>
         <addAttributes>
             <att name="cf_role">profile_id</att>
             <att name="ioos_category">Identifier</att>
