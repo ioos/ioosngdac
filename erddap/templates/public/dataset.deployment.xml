@@ -1,5 +1,4 @@
 <dataset type="EDDTableFromNcCFFiles" datasetID="${dataset_id}" active="true">
-    <defaultDataQuery>&amp;trajectory=${dataset_id}</defaultDataQuery>
     <defaultGraphQuery>longitude,latitude&amp;.draw=linesAndMarkers&amp;.marker=1|5&amp;.color=0xFFFFFF</defaultGraphQuery>
     <reloadEveryNMinutes>15</reloadEveryNMinutes>
     <fileDir>${dataset_dir}</fileDir>
@@ -19,12 +18,6 @@
         <dataType>String</dataType>
     </dataVariable>
     
-    <dataVariable>
-        <sourceName>institution</sourceName>
-        <destinationName>institution</destinationName>
-        <dataType>String</dataType>
-    </dataVariable>
-
     <dataVariable>
         <sourceName>wmo_id</sourceName>
         <destinationName>wmo_id</destinationName>
