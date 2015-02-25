@@ -27,8 +27,9 @@
         <att name="infoUrl">http://rucool.marine.rutgers.edu</att>
         <!-- title=datasetID -->
         <att name="title">${dataset_id}</att>
-        <!-- Data Provider Institution from http://gliders.ioos.us -->
+        <!-- Data Provider Institution from http://gliders.ioos.us
         <att name="institution">${institution}</att>
+        -->
 
     </addAttributes> 
 
