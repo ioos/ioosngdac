@@ -33,7 +33,7 @@
   <attribute name="sea_name" value=" " />
   <attribute name="source" value="Observational data from a profiling glider" />
   <attribute name="standard_name_vocabulary" value="CF-v25" />
-  <attribute name="summary" value="The Rutgers University Coastal Ocean Observation Lab has deployed autonomous underwater gliders around the world since 1990.  Gliders are small, free-swimming, unmanned vehicles that use changes in buoyancy to move vertically and horizontally through the water column in a saw-tooth pattern. They are deployed for days to several months and gather detailed information about the physical, chemical and biological processes of the world's The Slocum glider was designed and oceans. built by Teledyne Webb Research Corporation, Falmouth, MA, USA.  This dataset contains observational sub-surface profile data of the water-column." />
+  <attribute name="summary" value=" " />
   <attribute name="title" value=" " />
   <attribute name="wmo_id" value=" " />
   <variable name="trajectory" shape="traj_strlen" type="char">
