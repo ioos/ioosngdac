@@ -33,17 +33,22 @@ $Data::Dumper::Indent   = 1;
 my (undef, undef, $app) = File::Spec->splitpath($0);
 
 # FTP account info
-Readonly my $URL => 'ftp.gliders.ioos.us';
+#Readonly my $URL => '54.91.88.156';
+Readonly my $URL => 'data.ioos.us';
 # Data provider user name
 Readonly my $USER => 'USER';
 # Data provider password
 Readonly my $PASS => 'PASSWORD';
 Readonly my $PORT => 21;
 
-my $BASE_REMOTE_DIR = './upload';
+#my $BASE_REMOTE_DIR = '/upload';
+my $BASE_REMOTE_DIR = '/';
+
+# FTP settings
+Readonly my $PASSIVE => 0;
 
 # Default options
-my $VERBOSE; # Net::SFTP::Foreign debugging statements
+my $VERBOSE; # Net::FTP::Foreign debugging statements
 my $DELETE; # Deletes each file on successful transfer
 my $SOURCE_DIR; # Directory to search for NetCDF (.nc) files
 my $REMOTE_DIR; # Remote destination directory
@@ -52,7 +57,7 @@ my $WMO_FILE; # location of wmoid.txt file to upload
 # Usage message
 my $USAGE =<<"END_USAGE";
 NAME
-    $app - Secure FTP transfer of NetCDF files to IOOS NGDAC
+    $app - FTP transfer of NetCDF files to IOOS NGDAC
 
 SYNOPSIS
     $app --remote-dir DIRECTORY [--help] [--source-dir DIRECTORY] [--delete-on-success] 
@@ -60,8 +65,8 @@ SYNOPSIS
 
 DESCRIPTION
     Upload NetCDF files to the IOOS National Glider Data Aggregation Center
-    via secure ftp ($URL).  Individual files may be specified on the command 
-    line.  Files are uploaded to the directory specified using the 
+    via ftp ($URL).  Individual files may be specified on the command line.  
+    Files are uploaded to the directory specified using the 
     --remote-dir option which, if it doesn't exist, is created under:
 
         $BASE_REMOTE_DIR
@@ -143,9 +148,9 @@ if (!@nc_files) {
 # Connect to the remote server.  Set autodie => 1 to exit on failure
 print "Connecting via FTP: $URL..";
 my $ftp = Net::FTP->new($URL,
-    Debug => 1,
-    Passive => 1,
-    Timeout => 10,
+    Debug => $VERBOSE,
+    Passive => $PASSIVE,
+    Timeout => 30,
     Port => $PORT) or die "FTP connection failed: $@";
 print "Connected\n";
 
@@ -159,41 +164,16 @@ $Data::Dumper::Varname = '$UPLOAD DIRS';
 print Dumper(\@upload_dirs);
 
 # Grep the directory listing for the $REMOTE_DIR
-my @found_dirs = grep /$REMOTE_DIR/, @upload_dirs;
+my @found_dir = grep /$REMOTE_DIR/, @upload_dirs;
 $Data::Dumper::Varname = 'FOUND REMOTE DIR';
-print Dumper(\@found_dirs);
-
-#$ftp->quit();
-#exit 0;
+print Dumper(\@found_dir);
 
 # Create the remote directory if it doesn't already exist.  If the directory
 # does not exist, the last element in @deployemnt_dir == -1
-if (!@upload_dirs) {
+if (!@found_dir) {
+    $ftp->quit();
     die
       "Remote upload destination does not exist: $REMOTE_DEST\nYou must create the upload directory using the IOOS NGDAC data provider website";
-#    print "Creating NEW remote destination: $REMOTE_DEST\n";
-#    my $created_dest = $ftp->mkdir($REMOTE_DEST);
-#    !$created_dest and die $ftp->error;
-#    print "Created: $created_dest\n";
-}
-
-# If a wmoid.txt file has been specified and is valid, upload it first
-if ($WMO_FILE) {
-    if ( ! -f $WMO_FILE ) { 
-        warn "WMOID.txt file does not exist: $WMO_FILE\n";
-    }
-    else {
-        print "Uploading WMO ID: $WMO_FILE\n";
-	    # Create the fully-qualified remote file name
-	    my (undef, undef, $wmo) = File::Spec->splitpath($WMO_FILE);
-	    my $remote_wmo = File::Spec->catfile($REMOTE_DEST, $wmo);
-
-	    # Transfer the file
-	    my $success = $ftp->put($WMO_FILE, $remote_wmo);
-	    if (!$success) {
-	        warn "Failed transfer: $WMO_FILE (" . $ftp->error . ")\n";
-	    }
-    }
 }
 
 # Switch to binary transfer mode
