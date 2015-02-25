@@ -27,12 +27,9 @@
         <att name="infoUrl">http://data.ioos.us/gliders/erddap/</att>
         <!-- title=datasetID -->
         <att name="title">${dataset_id}</att>
-<<<<<<< HEAD
         <!-- Data Provider Institution from http://gliders.ioos.us
         <att name="institution">${institution}</att>
         -->
-=======
->>>>>>> origin/master
 
     </addAttributes> 
 
