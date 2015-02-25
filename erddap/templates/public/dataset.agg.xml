@@ -26,12 +26,6 @@
     </dataVariable>
     
     <dataVariable>
-        <sourceName>institution</sourceName>
-        <destinationName>institution</destinationName>
-        <dataType>String</dataType>
-    </dataVariable>
-
-    <dataVariable>
         <sourceName>wmo_id</sourceName>
         <destinationName>wmo_id</destinationName>
         <dataType>String</dataType>

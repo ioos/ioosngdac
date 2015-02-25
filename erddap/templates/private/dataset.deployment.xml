@@ -15,21 +15,24 @@
     <addAttributes>
         <att name="cdm_data_type">trajectoryProfile</att>
         <att name="featureType">trajectoryProfile</att>
-        <att name="cdm_trajectory_variables">trajectory,wmo_id,institution</att>
+        <att name="cdm_trajectory_variables">trajectory,wmo_id</att>
         <att name="cdm_profile_variables">time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
-        <att name="subsetVariables">trajectory,wmo_id,institution,time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
+        <att name="subsetVariables">trajectory,wmo_id,time_uv,lat_uv,lon_uv,u,v,profile_id,time,latitude,longitude</att>
 
         <att name="Conventions">Unidata Dataset Discovery v1.0, COARDS, CF-1.6</att>
         <att name="keywords">AUVS > Autonomous Underwater Vehicles, Oceans > Ocean Pressure > Water Pressure, Oceans > Ocean Temperature > Water Temperature, Oceans > Salinity/Density > Conductivity, Oceans > Salinity/Density > Density, Oceans > Salinity/Density > Salinity, glider, In Situ Ocean-based platforms > Seaglider, Spray, Slocum, trajectory, underwater glider, water, wmo</att>
         <att name="keywords_vocabulary">GCMD Science Keywords</att>
         <att name="Metadata_Conventions">Unidata Dataset Discovery v1.0, COARDS, CF-1.6</att>
         <att name="sourceUrl">(local files)</att>
-        <att name="infoUrl">http://rucool.marine.rutgers.edu</att>
+        <att name="infoUrl">http://data.ioos.us/gliders/erddap/</att>
         <!-- title=datasetID -->
         <att name="title">${dataset_id}</att>
+<<<<<<< HEAD
         <!-- Data Provider Institution from http://gliders.ioos.us
         <att name="institution">${institution}</att>
         -->
+=======
+>>>>>>> origin/master
 
     </addAttributes> 
 
@@ -43,18 +46,6 @@
             <att name="long_name">Trajectory Name</att>
         </addAttributes>
     </dataVariable>
-
-    <!--
-    <dataVariable>
-        <sourceName>global:institution</sourceName>
-        <destinationName>institution</destinationName>
-        <dataType>String</dataType>
-        <addAttributes>
-            <att name="ioos_category">Identifier</att>
-            <att name="long_name">Institution</att>
-        </addAttributes>
-    </dataVariable>
-    -->
 
     <dataVariable>
         <sourceName>global:wmo_id</sourceName>
