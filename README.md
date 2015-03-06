@@ -11,7 +11,7 @@ Integrated Ocean Observing System National Glider Data Assembly Center.
 ###Documentation###
 
 - [Documentation](https://github.com/kerfoot/ioosngdac/wiki)
-- [Data Provider Links](https://github.com/ioos/ioosngdac/wiki/Links-for-Data-Providers)
+- [Links for Data Providers](https://github.com/ioos/ioosngdac/wiki/Links-for-Data-Providers)
 
 ###Data Access###
 The IOOS National Glider Data Assembly Center provides access to all submitted data sets through 2 services:
