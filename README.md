@@ -5,7 +5,7 @@ Documents describing the version 2.0 file format and design of the
 Integrated Ocean Observing System National Glider Data Assembly Center.
 
 ##Contents##
-- [Documentation](#documentation)
+- [Documentation](https://github.com/kerfoot/ioosngdac/wiki)
 - [Links](#links)
 - [Data Access](#data-access)
 
