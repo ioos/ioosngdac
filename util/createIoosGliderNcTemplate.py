@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 # This template is used to generate an empty (no data values) .nc file.  The
 # .nc file may then be dumped to .cdl and .ncml.  A generic filename is used
 # for the destination file.  Files containing actual glider data should follow
@@ -139,8 +141,7 @@ time = nc.createVariable('time',
     'f8',
     ('time',),
     zlib=True,
-    complevel=COMP_LEVEL,
-    fill_value=-999.)
+    complevel=COMP_LEVEL)
 # Dictionary of variable attributes.  Use a dictionary so that we can add the
 # attributes in alphabetical order (not necessary, but makes it easier to find
 # attributes that are in alphabetical order)
