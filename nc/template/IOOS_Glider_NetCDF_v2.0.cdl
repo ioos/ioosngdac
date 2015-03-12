@@ -8,9 +8,9 @@ variables:
 		trajectory:comment = "A trajectory is a single deployment of a glider and may span multiple data files." ;
 		trajectory:long_name = "Trajectory/Deployment Name" ;
 	double time(time) ;
-		time:_FillValue = -999. ;
 		time:ancillary_variables = "time_qc" ;
 		time:calendar = "gregorian" ;
+		time:comment = "Measured or calculated time at each point in the time-series" ;
 		time:long_name = "Time" ;
 		time:observation_type = "measured" ;
 		time:standard_name = "time" ;
@@ -18,7 +18,7 @@ variables:
 	double lat(time) ;
 		lat:_FillValue = -999. ;
 		lat:ancillary_variables = "lat_qc" ;
-		lat:comment = "Values may be interpolated between measured GPS fixes" ;
+		lat:comment = "Interpolated latitude at each point in the time-series" ;
 		lat:coordinate_reference_frame = "urn:ogc:crs:EPSG::4326" ;
 		lat:long_name = "Latitude" ;
 		lat:observation_type = "measured" ;
@@ -31,7 +31,7 @@ variables:
 	double lon(time) ;
 		lon:_FillValue = -999. ;
 		lon:ancillary_variables = "lon_qc" ;
-		lon:comment = "Values may be interpolated between measured GPS fixes" ;
+		lon:comment = "Interpolated longitude at each point in the time-series." ;
 		lon:coordinate_reference_frame = "urn:ogc:crs:EPSG::4326" ;
 		lon:long_name = "Longitude" ;
 		lon:observation_type = "measured" ;
@@ -132,13 +132,14 @@ variables:
 		density:valid_max = 1040. ;
 		density:valid_min = 1015. ;
 	int profile_id ;
-		profile_id:_FillValue = -1 ;
+		profile_id:_FillValue = -999 ;
 		profile_id:comment = "Sequential profile number within the trajectory.  This value is unique in each file that is part of a single trajectory/deployment." ;
 		profile_id:long_name = "Profile ID" ;
 		profile_id:valid_max = 2147483647 ;
 		profile_id:valid_min = 1 ;
 	double profile_time ;
 		profile_time:_FillValue = -999. ;
+		profile_time:calendar = "gregorian" ;
 		profile_time:comment = "Timestamp corresponding to the mid-point of the profile" ;
 		profile_time:long_name = "Profile Center Time" ;
 		profile_time:observation_type = "calculated" ;
@@ -169,14 +170,14 @@ variables:
 		time_uv:_FillValue = -999. ;
 		time_uv:calendar = "gregorian" ;
 		time_uv:comment = "The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives." ;
-		time_uv:long_name = "Time" ;
+		time_uv:long_name = "Depth-Averaged Time" ;
 		time_uv:observation_type = "calculated" ;
 		time_uv:standard_name = "time" ;
 		time_uv:units = "seconds since 1970-01-01T00:00:00Z" ;
 	double lat_uv ;
 		lat_uv:_FillValue = -999. ;
 		lat_uv:comment = "The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives." ;
-		lat_uv:long_name = "Latitude" ;
+		lat_uv:long_name = "Depth-Averaged Latitude" ;
 		lat_uv:observation_type = "calculated" ;
 		lat_uv:platform = "platform" ;
 		lat_uv:standard_name = "latitude" ;
@@ -186,7 +187,7 @@ variables:
 	double lon_uv ;
 		lon_uv:_FillValue = -999. ;
 		lon_uv:comment = "The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives." ;
-		lon_uv:long_name = "Longitude" ;
+		lon_uv:long_name = "Depth-Averaged Longitude" ;
 		lon_uv:observation_type = "calculated" ;
 		lon_uv:platform = "platform" ;
 		lon_uv:standard_name = "longitude" ;
@@ -401,7 +402,7 @@ variables:
 		:sea_name = " " ;
 		:source = "Observational data from a profiling glider" ;
 		:standard_name_vocabulary = "CF-v25" ;
-        :summary = " " ;
+		:summary = "The Rutgers University Coastal Ocean Observation Lab has deployed autonomous underwater gliders around the world since 1990.  Gliders are small, free-swimming, unmanned vehicles that use changes in buoyancy to move vertically and horizontally through the water column in a saw-tooth pattern. They are deployed for days to several months and gather detailed information about the physical, chemical and biological processes of the world\'s The Slocum glider was designed and oceans. built by Teledyne Webb Research Corporation, Falmouth, MA, USA.  This dataset contains observational sub-surface profile data of the water-column." ;
 		:title = " " ;
 		:wmo_id = " " ;
 }

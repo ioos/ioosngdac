@@ -33,7 +33,7 @@
   <attribute name="sea_name" value=" " />
   <attribute name="source" value="Observational data from a profiling glider" />
   <attribute name="standard_name_vocabulary" value="CF-v25" />
-  <attribute name="summary" value=" " />
+  <attribute name="summary" value="The Rutgers University Coastal Ocean Observation Lab has deployed autonomous underwater gliders around the world since 1990.  Gliders are small, free-swimming, unmanned vehicles that use changes in buoyancy to move vertically and horizontally through the water column in a saw-tooth pattern. They are deployed for days to several months and gather detailed information about the physical, chemical and biological processes of the world's The Slocum glider was designed and oceans. built by Teledyne Webb Research Corporation, Falmouth, MA, USA.  This dataset contains observational sub-surface profile data of the water-column." />
   <attribute name="title" value=" " />
   <attribute name="wmo_id" value=" " />
   <variable name="trajectory" shape="traj_strlen" type="char">
@@ -42,9 +42,9 @@
     <attribute name="long_name" value="Trajectory/Deployment Name" />
   </variable>
   <variable name="time" shape="time" type="double">
-    <attribute name="_FillValue" type="double" value="-999." />
     <attribute name="ancillary_variables" value="time_qc" />
     <attribute name="calendar" value="gregorian" />
+    <attribute name="comment" value="Measured or calculated time at each point in the time-series" />
     <attribute name="long_name" value="Time" />
     <attribute name="observation_type" value="measured" />
     <attribute name="standard_name" value="time" />
@@ -53,7 +53,7 @@
   <variable name="lat" shape="time" type="double">
     <attribute name="_FillValue" type="double" value="-999." />
     <attribute name="ancillary_variables" value="lat_qc" />
-    <attribute name="comment" value="Values may be interpolated between measured GPS fixes" />
+    <attribute name="comment" value="Interpolated latitude at each point in the time-series" />
     <attribute name="coordinate_reference_frame" value="urn:ogc:crs:EPSG::4326" />
     <attribute name="long_name" value="Latitude" />
     <attribute name="observation_type" value="measured" />
@@ -67,7 +67,7 @@
   <variable name="lon" shape="time" type="double">
     <attribute name="_FillValue" type="double" value="-999." />
     <attribute name="ancillary_variables" value="lon_qc" />
-    <attribute name="comment" value="Values may be interpolated between measured GPS fixes" />
+    <attribute name="comment" value="Interpolated longitude at each point in the time-series." />
     <attribute name="coordinate_reference_frame" value="urn:ogc:crs:EPSG::4326" />
     <attribute name="long_name" value="Longitude" />
     <attribute name="observation_type" value="measured" />
@@ -175,7 +175,7 @@
     <attribute name="valid_min" type="double" value="1015." />
   </variable>
   <variable name="profile_id" type="int">
-    <attribute name="_FillValue" type="int" value="-1" />
+    <attribute name="_FillValue" type="int" value="-999" />
     <attribute name="comment" value="Sequential profile number within the trajectory.  This value is unique in each file that is part of a single trajectory/deployment." />
     <attribute name="long_name" value="Profile ID" />
     <attribute name="valid_max" type="int" value="2147483647" />
@@ -183,6 +183,7 @@
   </variable>
   <variable name="profile_time" type="double">
     <attribute name="_FillValue" type="double" value="-999." />
+    <attribute name="calendar" value="gregorian" />
     <attribute name="comment" value="Timestamp corresponding to the mid-point of the profile" />
     <attribute name="long_name" value="Profile Center Time" />
     <attribute name="observation_type" value="calculated" />
@@ -216,7 +217,7 @@
     <attribute name="_FillValue" type="double" value="-999." />
     <attribute name="calendar" value="gregorian" />
     <attribute name="comment" value="The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives." />
-    <attribute name="long_name" value="Time" />
+    <attribute name="long_name" value="Depth-Averaged Time" />
     <attribute name="observation_type" value="calculated" />
     <attribute name="standard_name" value="time" />
     <attribute name="units" value="seconds since 1970-01-01T00:00:00Z" />
@@ -224,7 +225,7 @@
   <variable name="lat_uv" type="double">
     <attribute name="_FillValue" type="double" value="-999." />
     <attribute name="comment" value="The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives." />
-    <attribute name="long_name" value="Latitude" />
+    <attribute name="long_name" value="Depth-Averaged Latitude" />
     <attribute name="observation_type" value="calculated" />
     <attribute name="platform" value="platform" />
     <attribute name="standard_name" value="latitude" />
@@ -235,7 +236,7 @@
   <variable name="lon_uv" type="double">
     <attribute name="_FillValue" type="double" value="-999." />
     <attribute name="comment" value="The depth-averaged current is an estimate of the net current measured while the glider is underwater.  The value is calculated over the entire underwater segment, which may consist of 1 or more dives." />
-    <attribute name="long_name" value="Longitude" />
+    <attribute name="long_name" value="Depth-Averaged Longitude" />
     <attribute name="observation_type" value="calculated" />
     <attribute name="platform" value="platform" />
     <attribute name="standard_name" value="longitude" />
