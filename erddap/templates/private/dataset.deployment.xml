@@ -1,7 +1,9 @@
 <dataset type="EDDTableFromNcFiles" datasetID="${dataset_id}" active="true">
     <!-- defaultDataQuery uses datasetID -->
+    <!--
     <defaultDataQuery>&amp;trajectory=${dataset_id}</defaultDataQuery>
     <defaultGraphQuery>longitude,latitude,time&amp;.draw=markers&amp;.marker=2|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
+    -->
     <reloadEveryNMinutes>60</reloadEveryNMinutes>
     <!-- use datasetID as the directory name -->
     <fileDir>${dataset_dir}</fileDir>
