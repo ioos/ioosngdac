@@ -1,5 +1,7 @@
 <dataset type="EDDTableFromNcCFFiles" datasetID="${dataset_id}" active="true">
+    <!--
     <defaultGraphQuery>longitude,latitude&amp;.draw=linesAndMarkers&amp;.marker=1|5&amp;.color=0xFFFFFF</defaultGraphQuery>
+    -->
     <reloadEveryNMinutes>15</reloadEveryNMinutes>
     <fileDir>${dataset_dir}</fileDir>
     <recursive>false</recursive>
