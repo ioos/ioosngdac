@@ -4,7 +4,7 @@
   <dimension name="traj_strlen" length="20" />
   <attribute name="Conventions" value="CF-1.6, Unidata Dataset Discovery v1.0" />
   <attribute name="Metadata_Conventions" value="CF-1.6, Unidata Dataset Discovery v1.0" />
-  <attribute name="acknowledgment" value="This deployment supported by ..." />
+  <attribute name="acknowledegment" value="This deployment supported by ..." />
   <attribute name="comment" value=" " />
   <attribute name="contributor_name" value=" " />
   <attribute name="contributor_role" value=" " />

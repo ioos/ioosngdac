@@ -373,7 +373,7 @@ variables:
 // global attributes:
 		:Conventions = "CF-1.6, Unidata Dataset Discovery v1.0" ;
 		:Metadata_Conventions = "CF-1.6, Unidata Dataset Discovery v1.0" ;
-		:acknowledgment = "This deployment supported by ..." ;
+		:acknowledegment = "This deployment supported by ..." ;
 		:comment = " " ;
 		:contributor_name = " " ;
 		:contributor_role = " " ;
