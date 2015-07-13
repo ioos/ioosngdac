@@ -154,7 +154,7 @@
     <attribute name="platform" value="platform" />
     <attribute name="precision" value=" " />
     <attribute name="resolution" value=" " />
-    <attribute name="standard_name" value="sea_water_salinity" />
+    <attribute name="standard_name" value="sea_water_practical_salinity" />
     <attribute name="units" value="1e-3" />
     <attribute name="valid_max" type="double" value="40." />
     <attribute name="valid_min" type="double" value="0." />
@@ -355,7 +355,7 @@
     <attribute name="flag_meanings" value="no_qc_performed good_data probably_good_data bad_data_that_are_potentially_correctable bad_data value_changed not_used not_used interpolated_value missing_value" />
     <attribute name="flag_values" type="byte" value="0 1 2 3 4 5 6 7 8 9" />
     <attribute name="long_name" value="salinity Quality Flag" />
-    <attribute name="standard_name" value="sea_water_salinity status_flag" />
+    <attribute name="standard_name" value="sea_water_practical_salinity status_flag" />
     <attribute name="valid_max" type="byte" value="9" />
     <attribute name="valid_min" type="byte" value="0" />
   </variable>
