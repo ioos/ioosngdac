@@ -113,7 +113,7 @@ variables:
 		salinity:platform = "platform" ;
 		salinity:precision = " " ;
 		salinity:resolution = " " ;
-		salinity:standard_name = "sea_water_salinity" ;
+		salinity:standard_name = "sea_water_practical_salinity" ;
 		salinity:units = "1e-3" ;
 		salinity:valid_max = 40. ;
 		salinity:valid_min = 0. ;
@@ -294,7 +294,7 @@ variables:
 		salinity_qc:flag_meanings = "no_qc_performed good_data probably_good_data bad_data_that_are_potentially_correctable bad_data value_changed not_used not_used interpolated_value missing_value" ;
 		salinity_qc:flag_values = 0b, 1b, 2b, 3b, 4b, 5b, 6b, 7b, 8b, 9b ;
 		salinity_qc:long_name = "salinity Quality Flag" ;
-		salinity_qc:standard_name = "sea_water_salinity status_flag" ;
+		salinity_qc:standard_name = "sea_water_practical_salinity status_flag" ;
 		salinity_qc:valid_max = 9b ;
 		salinity_qc:valid_min = 0b ;
 	byte density_qc(time) ;
