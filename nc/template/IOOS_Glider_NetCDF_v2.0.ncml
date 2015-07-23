@@ -4,7 +4,7 @@
   <dimension name="traj_strlen" length="20" />
   <attribute name="Conventions" value="CF-1.6, Unidata Dataset Discovery v1.0" />
   <attribute name="Metadata_Conventions" value="CF-1.6, Unidata Dataset Discovery v1.0" />
-  <attribute name="acknowledegment" value="This deployment supported by ..." />
+  <attribute name="acknowledgment" value="This deployment supported by ..." />
   <attribute name="comment" value=" " />
   <attribute name="contributor_name" value=" " />
   <attribute name="contributor_role" value=" " />
@@ -32,7 +32,7 @@
   <attribute name="references" value=" " />
   <attribute name="sea_name" value=" " />
   <attribute name="source" value="Observational data from a profiling glider" />
-  <attribute name="standard_name_vocabulary" value="CF-v25" />
+  <attribute name="standard_name_vocabulary" value="CF-v29" />
   <attribute name="summary" value="The Rutgers University Coastal Ocean Observation Lab has deployed autonomous underwater gliders around the world since 1990.  Gliders are small, free-swimming, unmanned vehicles that use changes in buoyancy to move vertically and horizontally through the water column in a saw-tooth pattern. They are deployed for days to several months and gather detailed information about the physical, chemical and biological processes of the world's The Slocum glider was designed and oceans. built by Teledyne Webb Research Corporation, Falmouth, MA, USA.  This dataset contains observational sub-surface profile data of the water-column." />
   <attribute name="title" value=" " />
   <attribute name="wmo_id" value=" " />
@@ -149,14 +149,14 @@
     <attribute name="accuracy" value=" " />
     <attribute name="ancillary_variables" value="salinity_qc" />
     <attribute name="instrument" value="instrument_ctd" />
-    <attribute name="long_name" value="Salinity" />
+    <attribute name="long_name" value="Practical Salinity" />
     <attribute name="observation_type" value="calculated" />
     <attribute name="platform" value="platform" />
     <attribute name="precision" value=" " />
     <attribute name="resolution" value=" " />
     <attribute name="standard_name" value="sea_water_practical_salinity" />
-    <attribute name="units" value="1e-3" />
-    <attribute name="valid_max" type="double" value="40." />
+    <attribute name="units" value="1" />
+    <attribute name="valid_max" type="double" value="0.04" />
     <attribute name="valid_min" type="double" value="0." />
   </variable>
   <variable name="density" shape="time" type="double">

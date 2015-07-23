@@ -108,14 +108,14 @@ variables:
 		salinity:accuracy = " " ;
 		salinity:ancillary_variables = "salinity_qc" ;
 		salinity:instrument = "instrument_ctd" ;
-		salinity:long_name = "Salinity" ;
+		salinity:long_name = "Practical Salinity" ;
 		salinity:observation_type = "calculated" ;
 		salinity:platform = "platform" ;
 		salinity:precision = " " ;
 		salinity:resolution = " " ;
 		salinity:standard_name = "sea_water_practical_salinity" ;
-		salinity:units = "1e-3" ;
-		salinity:valid_max = 40. ;
+		salinity:units = "1" ;
+		salinity:valid_max = 0.04 ;
 		salinity:valid_min = 0. ;
 	double density(time) ;
 		density:_FillValue = -999. ;
@@ -373,7 +373,7 @@ variables:
 // global attributes:
 		:Conventions = "CF-1.6, Unidata Dataset Discovery v1.0" ;
 		:Metadata_Conventions = "CF-1.6, Unidata Dataset Discovery v1.0" ;
-		:acknowledegment = "This deployment supported by ..." ;
+		:acknowledgment = "This deployment supported by ..." ;
 		:comment = " " ;
 		:contributor_name = " " ;
 		:contributor_role = " " ;
@@ -401,8 +401,49 @@ variables:
 		:references = " " ;
 		:sea_name = " " ;
 		:source = "Observational data from a profiling glider" ;
-		:standard_name_vocabulary = "CF-v25" ;
+		:standard_name_vocabulary = "CF-v29" ;
 		:summary = "The Rutgers University Coastal Ocean Observation Lab has deployed autonomous underwater gliders around the world since 1990.  Gliders are small, free-swimming, unmanned vehicles that use changes in buoyancy to move vertically and horizontally through the water column in a saw-tooth pattern. They are deployed for days to several months and gather detailed information about the physical, chemical and biological processes of the world\'s The Slocum glider was designed and oceans. built by Teledyne Webb Research Corporation, Falmouth, MA, USA.  This dataset contains observational sub-surface profile data of the water-column." ;
 		:title = " " ;
 		:wmo_id = " " ;
+data:
+
+ trajectory = "" ;
+
+ profile_id = _ ;
+
+ profile_time = _ ;
+
+ profile_lat = _ ;
+
+ profile_lon = _ ;
+
+ time_uv = _ ;
+
+ lat_uv = _ ;
+
+ lon_uv = _ ;
+
+ u = _ ;
+
+ v = _ ;
+
+ platform = _ ;
+
+ instrument_ctd = _ ;
+
+ profile_time_qc = _ ;
+
+ profile_lat_qc = _ ;
+
+ profile_lon_qc = _ ;
+
+ time_uv_qc = _ ;
+
+ lat_uv_qc = _ ;
+
+ lon_uv_qc = _ ;
+
+ u_qc = _ ;
+
+ v_qc = _ ;
 }

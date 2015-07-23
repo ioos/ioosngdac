@@ -104,7 +104,7 @@ global_attributes = {
     'references' : ' ',
     'sea_name' : ' ', # http://www.nodc.noaa.gov/General/NODC-Archive/seanamelist.txt
     'source' : 'Observational data from a profiling glider', 
-    'standard_name_vocabulary' : 'CF-v25',
+    'standard_name_vocabulary' : 'CF-v29',
     'summary' : "The Rutgers University Coastal Ocean Observation Lab has deployed autonomous underwater gliders around the world since 1990.  Gliders are small, free-swimming, unmanned vehicles that use changes in buoyancy to move vertically and horizontally through the water column in a saw-tooth pattern. They are deployed for days to several months and gather detailed information about the physical, chemical and biological processes of the world's The Slocum glider was designed and oceans. built by Teledyne Webb Research Corporation, Falmouth, MA, USA.  This dataset contains observational sub-surface profile data of the water-column.",
     'title' : ' ', # glider-YYYYmmddTHHMM'
     'wmo_id' : ' '
@@ -314,11 +314,11 @@ salinity = nc.createVariable('salinity',
     complevel=COMP_LEVEL,
     fill_value=-999.)
 # Variable attributes
-atts = { 'units' : '1e-3',
-    'standard_name' : 'sea_water_salinity',
+atts = { 'units' : '1',
+    'standard_name' : 'sea_water_practical_salinity',
     'valid_min' : 0.,
-    'valid_max' : 40.,
-    'long_name' : 'Salinity',
+    'valid_max' : 0.040,
+    'long_name' : 'Practical Salinity',
     'observation_type' : 'calculated',
     'ancillary_variables' : 'salinity_qc',
     'platform' : 'platform',
