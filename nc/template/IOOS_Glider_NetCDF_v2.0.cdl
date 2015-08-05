@@ -114,7 +114,7 @@ variables:
 		salinity:precision = " " ;
 		salinity:resolution = " " ;
 		salinity:standard_name = "sea_water_practical_salinity" ;
-		salinity:units = "1e-3" ;
+		salinity:units = 1 ;
 		salinity:valid_max = 40. ;
 		salinity:valid_min = 0. ;
 	double density(time) ;
