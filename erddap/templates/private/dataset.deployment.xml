@@ -29,6 +29,8 @@
         <att name="infoUrl">http://data.ioos.us/gliders/erddap/</att>
         <!-- title=datasetID -->
         <att name="title">${dataset_id}</att>
+        <att name="ioos_dac_checksum">${checksum}</att>
+        <att name="ioos_dac_completed">${completed}</att>
         <!-- Data Provider Institution from http://gliders.ioos.us
         <att name="institution">${institution}</att>
         -->
