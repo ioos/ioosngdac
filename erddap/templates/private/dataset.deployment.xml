@@ -1,12 +1,12 @@
-<dataset type="EDDTableFromNcFiles" datasetID="${dataset_id}" active="true">
+<dataset type="EDDTableFromNcFiles" datasetID="{{dataset_id}}" active="true">
     <!-- defaultDataQuery uses datasetID -->
     <!--
-    <defaultDataQuery>&amp;trajectory=${dataset_id}</defaultDataQuery>
+    <defaultDataQuery>&amp;trajectory={{dataset_id}}</defaultDataQuery>
     <defaultGraphQuery>longitude,latitude,time&amp;.draw=markers&amp;.marker=2|5&.color=0xFFFFFF&.colorBar=|||||</defaultGraphQuery>
     -->
     <reloadEveryNMinutes>60</reloadEveryNMinutes>
     <!-- use datasetID as the directory name -->
-    <fileDir>${dataset_dir}</fileDir>
+    <fileDir>{{dataset_dir}}</fileDir>
     <recursive>false</recursive>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <metadataFrom>last</metadataFrom>
@@ -28,11 +28,11 @@
         <att name="sourceUrl">(local files)</att>
         <att name="infoUrl">http://data.ioos.us/gliders/erddap/</att>
         <!-- title=datasetID -->
-        <att name="title">${dataset_id}</att>
-        <att name="ioos_dac_checksum">${checksum}</att>
-        <att name="ioos_dac_completed">${completed}</att>
+        <att name="title">{{dataset_id}}</att>
+        <att name="ioos_dac_checksum">{{checksum}}</att>
+        <att name="ioos_dac_completed">{{completed}}</att>
         <!-- Data Provider Institution from http://gliders.ioos.us
-        <att name="institution">${institution}</att>
+        <att name="institution">{{institution}}</att>
         -->
 
     </addAttributes> 
@@ -470,5 +470,18 @@
             <att name="long_name">v Variable Quality Flag</att>
         </addAttributes>
     </dataVariable>
+
+    {% if include_qartod %}
+    {% for var in qartod_variables %}
+    <dataVariable>
+        <sourceName>{{var}}</sourceName>
+        <destinationName>{{var}}</destinationName>
+        <dataType>byte</dataType>
+        <addAttributes>
+            <att name="ioos_category">Quality</att>
+        </addAttributes>
+    </dataVariable>
+    {% endfor %}
+    {% endif %}
 
 </dataset>
