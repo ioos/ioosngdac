@@ -1,8 +1,11 @@
 IOOS Glider DAC V2
 ==================
 
-Documents describing the version 2.0 file format and design of the
-Integrated Ocean Observing System National Glider Data Assembly Center.
+This is the central repository for GliderDAC Issues.
+Issues specific to the [IOOS Compliance Checker Plug-In](https://github.com/ioos/cc-plugin-glider) should be filed in that repository.
+
+This repository includes documents describing the version 2.0 file format and design of the
+Integrated Ocean Observing System National Glider Data Assembly Center.  It  also includes approved metadata. 
 
 ##Contents##
 - [Documentation](https://github.com/kerfoot/ioosngdac/wiki)
