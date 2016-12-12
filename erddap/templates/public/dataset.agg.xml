@@ -16,7 +16,7 @@
     <fileTableInMemory>false</fileTableInMemory>
 
     <addAttributes>
-        <att name="title">${dataset_title}</att>
+        <att name="title">{{dataset_title}}</att>
     </addAttributes>
     
     <dataVariable>
