@@ -1,9 +1,9 @@
-<dataset type="EDDTableFromNcCFFiles" datasetID="${dataset_id}" active="true">
+<dataset type="EDDTableFromNcCFFiles" datasetID="{{dataset_id}}" active="true">
     <!--
     <defaultGraphQuery>longitude,latitude&amp;.draw=linesAndMarkers&amp;.marker=1|5&amp;.color=0xFFFFFF</defaultGraphQuery>
     -->
     <reloadEveryNMinutes>15</reloadEveryNMinutes>
-    <fileDir>${dataset_dir}</fileDir>
+    <fileDir>{{dataset_dir}}</fileDir>
     <recursive>false</recursive>
     <fileNameRegex>.*\.nc3\.nc</fileNameRegex>
     <metadataFrom>last</metadataFrom>
@@ -247,5 +247,15 @@
         <destinationName>instrument_ctd</destinationName>
         <dataType>byte</dataType>
     </dataVariable>
+
+    {% if include_qartod %}
+    {% for var in qartod_variables %}
+    <dataVariable>
+        <sourceName>{{var}}</sourceName>
+        <destinationName>{{var}}</destinationName>
+        <dataType>byte</dataType>
+    </dataVariable>
+    {% endfor %}
+    {% endif %}
 
 </dataset>
