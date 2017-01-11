@@ -18,6 +18,7 @@
   <attribute name="history" value=" " />
   <attribute name="id" value=" " />
   <attribute name="institution" value=" " />
+  <attribute name="ioos_regional_association" value=" " />
   <attribute name="keywords" value="AUVS &gt; Autonomous Underwater Vehicles, Oceans &gt; Ocean Pressure &gt; Water Pressure, Oceans &gt; Ocean Temperature &gt; Water Temperature, Oceans &gt; Salinity/Density &gt; Conductivity, Oceans &gt; Salinity/Density &gt; Density, Oceans &gt; Salinity/Density &gt; Salinity" />
   <attribute name="keywords_vocabulary" value="GCMD Science Keywords" />
   <attribute name="license" value="This data may be redistributed and used without restriction.  Data provided as is with no expressed or implied assurance of quality assurance or quality control" />
