@@ -1,4 +1,4 @@
-netcdf IOOS_Glider_NetCDF_v2.0-qartod {
+netcdf IOOS_Glider_NetCDF_v3.0-qartod {
 dimensions:
 	time = UNLIMITED ; // (0 currently)
 	traj_strlen = 20 ;
@@ -618,7 +618,7 @@ variables:
 		:history = " " ;
 		:id = " " ;
 		:institution = " " ;
-        :ioos_regional_association = " " ;
+		:ioos_regional_association = " " ;
 		:keywords = "AUVS > Autonomous Underwater Vehicles, Oceans > Ocean Pressure > Water Pressure, Oceans > Ocean Temperature > Water Temperature, Oceans > Salinity/Density > Conductivity, Oceans > Salinity/Density > Density, Oceans > Salinity/Density > Salinity" ;
 		:keywords_vocabulary = "GCMD Science Keywords" ;
 		:license = "This data may be redistributed and used without restriction.  Data provided as is with no expressed or implied assurance of quality assurance or quality control" ;
