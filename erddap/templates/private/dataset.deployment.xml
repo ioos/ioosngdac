@@ -301,184 +301,35 @@
         </addAttributes>
     </dataVariable>
 
+    {% for req_var in reqd_qc_vars %}
     <dataVariable>
-        <sourceName>time_qc</sourceName>
-        <destinationName>precise_time_qc</destinationName>
+        <sourceName>{{req_var}}</sourceName>
+        <destinationName>{{dest_var_remaps.get(req_var, req_var)}}</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
             <att name="ioos_category">Quality</att>
-            <att name="long_name">precise_time Variable Quality Flag</att>
+            <att name="long_name">{{dest_var_remaps.get(req_var, req_var)}} Variable Quality Flag</att>
+            {% if '_FillValue' not in qc_var_types['gen_qc'][req_var] %}
+            <att name='_FillValue'>-127</att>
+            {% endif %}
         </addAttributes>
     </dataVariable>
+    {% endfor %}
 
+    {# if there are QARTOD variables defined, populate them #}
+    {% if qc_var_types['qartod'] | length > 0 %}
+    {% for qartod_var in (qc_var_types['qartod']) %}
     <dataVariable>
-        <sourceName>depth_qc</sourceName>
-        <destinationName>depth_qc</destinationName>
+        <sourceName>{{qartod_var}}</sourceName>
+        <destinationName>{{qartod_var}}</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
             <att name="ioos_category">Quality</att>
-            <att name="long_name">depth Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>pressure_qc</sourceName>
-        <destinationName>pressure_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">pressure Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>temperature_qc</sourceName>
-        <destinationName>temperature_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">temperature Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>conductivity_qc</sourceName>
-        <destinationName>conductivity_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">conductivity Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>salinity_qc</sourceName>
-        <destinationName>salinity_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">salinity Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>density_qc</sourceName>
-        <destinationName>density_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">density Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>lat_qc</sourceName>
-        <destinationName>precise_lat_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">lat Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>lon_qc</sourceName>
-        <destinationName>precise_lon_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">precise_lon Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>profile_time_qc</sourceName>
-        <destinationName>time_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">profile_time Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>profile_lat_qc</sourceName>
-        <destinationName>latitude_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">latitude Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>profile_lon_qc</sourceName>
-        <destinationName>longitude_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">longitude Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>time_uv_qc</sourceName>
-        <destinationName>time_uv_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">time_uv Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>lat_uv_qc</sourceName>
-        <destinationName>lat_uv_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">lat_uv Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>lon_uv_qc</sourceName>
-        <destinationName>lon_uv_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">lon_uv Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>u_qc</sourceName>
-        <destinationName>u_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">u Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>v_qc</sourceName>
-        <destinationName>v_qc</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
-            <att name="long_name">v Variable Quality Flag</att>
-        </addAttributes>
-    </dataVariable>
-
-    {% if include_qartod %}
-    {% for var in qartod_variables %}
-    <dataVariable>
-        <sourceName>{{var}}</sourceName>
-        <destinationName>{{var}}</destinationName>
-        <dataType>byte</dataType>
-        <addAttributes>
-            <att name="ioos_category">Quality</att>
+            {# all qartod variables should have _FillValue, missing_value,
+               flag_values, and flag_meanings defined #}
+           <att name="flag_values">1B, 2B, 3B, 4B, 9B</att>
+           <att name="flag_meanings">GOOD NOT_EVALUATED SUSPECT BAD MISSING</att>
+           <att name="_FillValue">2</att>
         </addAttributes>
     </dataVariable>
     {% endfor %}
