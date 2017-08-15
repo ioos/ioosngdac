@@ -308,7 +308,7 @@
         <dataType>byte</dataType>
         <addAttributes>
             <att name="ioos_category">Quality</att>
-            <att name="long_name">{{dest_var_remaps.get(req_var, req_var)}} Variable Quality Flag</att>
+            <att name="long_name">{{dest_var_remaps.get(req_var, req_var).replace('_qc', '')}} Variable Quality Flag</att>
             {% if '_FillValue' not in qc_var_types['gen_qc'][req_var] %}
             <att name='_FillValue' type='byte'>-127</att>
             {% endif %}
