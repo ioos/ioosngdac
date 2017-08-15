@@ -310,7 +310,7 @@
             <att name="ioos_category">Quality</att>
             <att name="long_name">{{dest_var_remaps.get(req_var, req_var)}} Variable Quality Flag</att>
             {% if '_FillValue' not in qc_var_types['gen_qc'][req_var] %}
-            <att name='_FillValue'>-127</att>
+            <att name='_FillValue' type='byte'>-127</att>
             {% endif %}
         </addAttributes>
     </dataVariable>
@@ -329,7 +329,7 @@
                flag_values, and flag_meanings defined #}
            <att name="flag_values">1B, 2B, 3B, 4B, 9B</att>
            <att name="flag_meanings">GOOD NOT_EVALUATED SUSPECT BAD MISSING</att>
-           <att name="_FillValue">2</att>
+           <att name="_FillValue" type='byte'>2</att>
         </addAttributes>
     </dataVariable>
     {% endfor %}
