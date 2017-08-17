@@ -309,8 +309,10 @@
         <addAttributes>
             <att name="ioos_category">Quality</att>
             <att name="long_name">{{dest_var_remaps.get(req_var, req_var).replace('_qc', '')}} Variable Quality Flag</att>
-            {% if '_FillValue' not in qc_var_types['gen_qc'][req_var] %}
-            <att name='_FillValue' type='byte'>-127</att>
+            {% if req_var not in qc_var_types['gen_qc'] %}
+            <att name="flag_values">0,1,2,3,4,5,6,7,8,9</att>
+            <att name="flag_meanings">no_qc_performed good_data probably_good_data bad_data_that_are_potentially_correctable bad_data value_changed interpolated_value missing_value</att>
+            <att name="_FillValue" type="byte">-127</att>
             {% endif %}
         </addAttributes>
     </dataVariable>
