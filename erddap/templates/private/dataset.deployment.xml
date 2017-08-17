@@ -320,7 +320,7 @@
 
     {# if there are QARTOD variables defined, populate them #}
     {% if qc_var_types['qartod'] | length > 0 %}
-    {% for qartod_var in (qc_var_types['qartod']) %}
+    {% for qartod_var in qc_var_types['qartod'] %}
     <dataVariable>
         <sourceName>{{qartod_var}}</sourceName>
         <destinationName>{{qartod_var}}</destinationName>
@@ -331,7 +331,9 @@
                flag_values, and flag_meanings defined #}
            <att name="flag_values">1B, 2B, 3B, 4B, 9B</att>
            <att name="flag_meanings">GOOD NOT_EVALUATED SUSPECT BAD MISSING</att>
-           <att name="_FillValue" type='byte'>2</att>
+           {% if "_FillValue" not in qc_var_types['qartod'][qartod_var] %}
+           <att name="_FillValue" type='byte'>-127</att>
+           {% endif %}
         </addAttributes>
     </dataVariable>
     {% endfor %}
