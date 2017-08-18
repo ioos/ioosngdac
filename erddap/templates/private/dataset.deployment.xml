@@ -310,7 +310,7 @@
             <att name="ioos_category">Quality</att>
             <att name="long_name">{{dest_var_remaps.get(req_var, req_var).replace('_qc', '')}} Variable Quality Flag</att>
             {% if req_var not in qc_var_types['gen_qc'] %}
-            <att name="flag_values">0,1,2,3,4,5,6,7,8,9</att>
+            <att name="flag_values">0b, 1b, 2b, 3b, 4b, 5b, 6b, 7b, 8b, 9b</att>
             <att name="flag_meanings">no_qc_performed good_data probably_good_data bad_data_that_are_potentially_correctable bad_data value_changed interpolated_value missing_value</att>
             <att name="_FillValue" type="byte">-127</att>
             <att name="valid_min" type="byte">0</att>
@@ -331,7 +331,7 @@
             <att name="ioos_category">Quality</att>
             {# all qartod variables should have _FillValue, missing_value,
                flag_values, and flag_meanings defined #}
-           <att name="flag_values">1B, 2B, 3B, 4B, 9B</att>
+           <att name="flag_values">1b, 2b, 3b, 4b, 9b</att>
            <att name="flag_meanings">GOOD NOT_EVALUATED SUSPECT BAD MISSING</att>
            <att name="valid_min" type="byte">1</att>
            <att name="valid_max" type="byte">9</att>
