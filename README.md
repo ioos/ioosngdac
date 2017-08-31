@@ -7,18 +7,18 @@ Issues specific to the [IOOS Compliance Checker Plug-In](https://github.com/ioos
 This repository includes documents describing the version 2.0 file format and design of the
 Integrated Ocean Observing System National Glider Data Assembly Center.  It  also includes approved metadata. 
 
-##Contents##
+## Contents
 - [Documentation](https://github.com/kerfoot/ioosngdac/wiki)
 - [Links](#links)
 - [Data Access](#data-access)
 
-###Links###
+### Links
 
 - [Documentation](https://github.com/kerfoot/ioosngdac/wiki)
 - [Links for Data Providers](https://github.com/ioos/ioosngdac/wiki/Links-for-Data-Providers)
 - [Links for Data Consumers](https://github.com/ioos/ioosngdac/wiki/Links-for-Data-Consumers)
 
-###Data Access###
+### Data Access
 The IOOS National Glider Data Assembly Center provides access to all submitted data sets through 2 services:
 
 - __ERDDAP Data Set Access__: http://data.ioos.us/gliders/erddap/tabledap/index.html
