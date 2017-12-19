@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# 
+Put a brief description of this documentation repository here. You may also provide the Web URL of the documentation site, e.g. "See the website at http://ioos.github.io/name-of-you-repo/" .
+=======
 IOOS Glider DAC V2
 ==================
 
@@ -23,3 +27,4 @@ The IOOS National Glider Data Assembly Center provides access to all submitted d
 
 - __ERDDAP Data Set Access__: http://data.ioos.us/gliders/erddap/tabledap/index.html
 - __THREDDS Data Set Access__: http://data.ioos.us/gliders/thredds/catalog.html
+>>>>>>> 384b438204a748f62e746a46e2cac718d3356d2d
