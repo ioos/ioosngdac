@@ -8,15 +8,15 @@ This repository includes documents describing the version 2.0 file format and de
 Integrated Ocean Observing System National Glider Data Assembly Center.  It  also includes approved metadata. 
 
 ## Contents
-- [Documentation](https://github.com/kerfoot/ioosngdac/wiki)
+- [Documentation](https://ioos.github.io/ioosngdac/)
 - [Links](#links)
 - [Data Access](#data-access)
 
 ### Links
 
-- [Documentation](https://github.com/kerfoot/ioosngdac/wiki)
-- [Links for Data Providers](https://github.com/ioos/ioosngdac/wiki/Links-for-Data-Providers)
-- [Links for Data Consumers](https://github.com/ioos/ioosngdac/wiki/Links-for-Data-Consumers)
+- [Documentation](https://ioos.github.io/ioosngdac/)
+- [Links for Data Providers](https://ioos.github.io/ioosngdac/links-for-data-providers)
+- [Links for Data Consumers](https://ioos.github.io/ioosngdac/links-for-data-consumers)
 
 ### Data Access
 The IOOS National Glider Data Assembly Center provides access to all submitted data sets through 2 services:
