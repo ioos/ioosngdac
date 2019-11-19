@@ -21,5 +21,5 @@ Integrated Ocean Observing System National Glider Data Assembly Center.  It  als
 ### Data Access
 The IOOS National Glider Data Assembly Center provides access to all submitted data sets through 2 services:
 
-- __ERDDAP Data Set Access__: http://data.ioos.us/gliders/erddap/tabledap/index.html
-- __THREDDS Data Set Access__: http://data.ioos.us/gliders/thredds/catalog.html
+- __ERDDAP Data Set Access__: https://gliders.ioos.us/erddap/index.html
+- __THREDDS Data Set Access__: https://gliders.ioos.us/thredds/catalog.html
