@@ -143,13 +143,6 @@ dev and production servers:
 
 As of 2021-06-28:
 
-~~
-1) MongoDB version on dev is more recent and is running in a Docker container, whereas the production version is running an older version on the machine
-2) ERDDAP version on dev is running 2.11 on Axiom's Docker image.  This is the current built version of ERDDAP for this Docker image, although there is an automated GitHub ticket to update the version: https://github.com/axiom-data-science/docker-erddap/issues/31.  Production is running a non-containerized ERDDAP 2.12 version
-3) For historical and compatibility reasons, production used `git worktree` to shift over portions of the workload to migrate over to Python 3.  This gradual process has meant that the main application running the latest code is located in `/home/glider/glider-dac/master_docker/` instead of `/home/glider/glider-dac/`, as it is on the development server.
-4) NetCDF files are synced from production to development.  However, the MongoDB contents, and hence the deployment information in the database is not, so deployments will not be reflected in the providers page, nor will certain processes attempt to snce
-5) Dev server uses ZFS as the main filesystem with `lz` compression enabled and data deduplication.  This was mainly done as a performance experiment to see if applications could benefit from the data deduplication and compression, which they definitely did.  However, the cost of data deduplication on memory and compression on CPU may be too high for the current production instance type being used given typical load patterns.
-~~
 
 ## Notes on admin user
 
